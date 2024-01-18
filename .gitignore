@@ -1,0 +1,17 @@
+.vscode/
+*/__pycache__
+/Preprocess
+/R_script_plot
+/WGS_PCAWG
+WGS*
+Deep*
+test.py
+similarity_matrix.csv
+sigGen/out
+sigGen/datasetOut
+sigGen/signatures
+tools/data
+eval/data
+eval/nmf_output
+nmf/output
+eval/datasets/*
