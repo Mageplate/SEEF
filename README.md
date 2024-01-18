@@ -26,7 +26,7 @@ SEEF is a framework that can be used to compare different extraction method for 
 
 ## 2 Installation
 ### 2.1 Code
-to download the code do
+To download the code do
 ```shell
     git clone https://github.com/Magnijh/SEEF
 ```
@@ -36,37 +36,37 @@ To get the signatures go to
     https://cancer.sanger.ac.uk/signatures/downloads/
 ```
 
-and download the file belonging to **GRCh37** and **SBS** as we work with Single-base substitutions
+And download the file belonging to **GRCh37** and **SBS** as we work with Single-base substitutions
 
 ### 2.3 Real data
 To get the real data do
 ```shell
     wget https://dcc.icgc.org/api/v1/download?fn=/PCAWG/mutational_signatures/Input_Data_PCAWG7_23K_Spectra_DB/Mutation_Catalogs_--_Spectra_of_Individual_Tumours/WGS_PCAWG_2018_02_09.zip
 ```
-unzip it
+Unzip it
 
 
 
 ## 3 Running
 
 ### 3.1 Creating synthetic dataset
-creating synthetic dataset you need to use the function `create_dataset` from the file `synthetic_dataset.py` in folder `sigGen`, there is 3 parameter required for the function to run, 
+Creating synthetic dataset you need to use the function `create_dataset` from the file `synthetic_dataset.py` in folder `sigGen`, there is 3 parameter required for the function to run, 
 1. number of signature
 2. number of how many samples
 3. path to Known Mutational Signatures file
 
-example
+Example
 
 ```python
 create_dataset(5,5,"path/to/sig.txt")
 ```
 
 ### 3.2 Extraction Method 
-when creating a Extraction Method there is some requirement both the input and output parameters for it to make it work for this framework
+when creating a Extraction Method there is some requirement both for the input parameters and for the return for it to work with the framework
 
 **input**
 1. pandas dataframe
-2. componets/latent
+2. number of componets/latent
 
 **output**
 1. latents space
@@ -74,17 +74,17 @@ when creating a Extraction Method there is some requirement both the input and o
 3. loss
 
 ### 3.3 Clustering
-For using the clustering method you need to give the class the path to the dataset and a pointer to the function
+For using the clustering method you need to give the class a path to the dataset and a pointer to the function
 
 example
 ```python
 mk_cluster("path/to/dataset",nmf).run()
 ```
-*note that there isn't paranthesis after nmf as it is function*
+*note that there isn't paranthesis after nmf as it is the function*
 
 ### 3.4 Method Evaluation
-to use this class it needs to imported from the folder `eval` file `method_evaluation.py` and
-Depending on what type of dataset one used, changes what function to call from the class
+To use this class it needs to be imported from the folder `eval` file `method_evaluation.py` and
+Depending on what type of dataset one used, will change what function needs to be called from the class
 
 **Synthetic data**
 For synthetic data one needs to give 4 file path those are
@@ -103,7 +103,7 @@ results = evaluator.evaluate(
     "path/to/known_weights")
 ```
 **Real data**
-For real data only path to the cluster signatures file is needed and which GRCh was used
+For real data there is only input two parameters one is path file needs to be given and that is to the cluster signatures file, and the other input is which GRCh was used
 
 ```python
 evaluator = MethodEvaluator()
@@ -111,7 +111,7 @@ results = evaluator.COSMICevaluate("path/to/extract_sig",GRCh ="GRCh37")
 ```
 
 ## 4 Example
-An example on how to run it with synthetic data
+An example on how to run the framework by using synthetic data and extraction method based on NMF
 ```python
 from sigGen.synthetic_dataset import create_dataset
 from eval.method_evaluation import MethodEvaluator
