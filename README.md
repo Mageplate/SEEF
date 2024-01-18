@@ -28,7 +28,7 @@ SEEF is a framework that can be used to compare different extraction method for 
 ### 2.1 Code
 to download the code do
 ```shell
-    git clone https://github.com/
+    git clone https://github.com/Magnijh/SEEF
 ```
 ### 2.2 Known Mutational Signatures
 To get the signatures go to
